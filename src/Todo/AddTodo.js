@@ -1,19 +1,31 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-function AddTodo({ addNewTodo }) {
+//кастомний хук для інпута
+function useInputValue(defaultVal = "") {
+  //Реакт хук зміни стейта
   const [inputState, setInputState] = useState("");
 
-  function handleInputChange(event) {
-    setInputState(event.target.value);
-  }
+  return {
+    input: {
+      value: inputState,
+      onChange: (event) => setInputState(event.target.value),
+    },
+    clearInput: () => setInputState(""),
+  };
+}
+
+//компонент форми додавання нової задачі
+function AddTodo({ addNewTodo }) {
+  //деструктуризація кастомного хука
+  const { input, clearInput } = useInputValue("");
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (inputState.trim()) {
-      addNewTodo(inputState);
-      setInputState("");
+    if (input.value.trim()) {
+      addNewTodo(input.value); //підйом значення з інпута в App, для зміни стейта
+      clearInput(); //звернення до виклика стейт хука
     }
   }
 
@@ -22,8 +34,7 @@ function AddTodo({ addNewTodo }) {
       <input
         type="text"
         style={{ flexBasis: "80%", height: "1.5rem" }}
-        value={inputState}
-        onChange={handleInputChange}
+        {...input}
       />
       <button
         type="submit"
@@ -35,7 +46,7 @@ function AddTodo({ addNewTodo }) {
     </form>
   );
 }
-
+//валідація пропсів
 AddTodo.propTypes = {
   addNewTodo: PropTypes.func.isRequired,
 };
