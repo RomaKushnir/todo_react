@@ -50,3 +50,19 @@ ul > li {
 .todo-done {
   text-decoration: line-through;
 }
+
+.form-add-new {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.btn-add-new {
+  cursor: pointer;
+}
+
+.btn-add-new:hover {
+  background-color: darkgreen;
+  border-color: darkgreen;
+  color: white;
+}

@@ -25,7 +25,7 @@ function TodoItem({ todo, index, todoItemToggle }) {
             todoItemToggle(todo.id);
           }}
         />
-        <strong>{index + 1}</strong>
+        <strong>{index}</strong>
         &nbsp;
         <span className={todo.completed ? "todo-done" : null}>
           {todo.title}

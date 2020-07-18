@@ -13,6 +13,7 @@ function App() {
   ];
 
   const [todosState, setTodosState] = useState(todos);
+
   // console.log(React.useState(1));
   // console.log(todosState);
 
@@ -36,11 +37,20 @@ function App() {
     setTodosState(updatedTodos);
   }
 
+  function addNewTodo(title) {
+    const updatedTodos = [
+      ...todosState,
+      { id: todosState.length + 1, title, completed: false },
+    ];
+
+    setTodosState(updatedTodos);
+  }
+
   return (
     <TodoContext.Provider value={{ todoItemRemove }}>
       <div className="container">
         <h1>Todo list</h1>
-        <AddTodo />
+        <AddTodo addNewTodo={addNewTodo} />
         <TodoList todos={todosState} todoItemToggle={todoItemToggle} />
       </div>
     </TodoContext.Provider>
