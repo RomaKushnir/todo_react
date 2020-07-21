@@ -66,3 +66,23 @@ ul > li {
   border-color: darkgreen;
   color: white;
 }
+
+.loader {
+  height: 70px;
+  width: 70px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: darkgreen transparent;
+  border-radius: 50%;
+  animation: loader-spinning 2s infinite linear;
+}
+
+@keyframes loader-spinning {
+  0% {
+    transform: rotation(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

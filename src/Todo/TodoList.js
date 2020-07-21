@@ -10,7 +10,7 @@ const styles = {
 };
 
 function TodoList(props) {
-  return props.todos.length ? (
+  return (
     <ul style={styles.ul}>
       {props.todos.map((item, index) => {
         return (
@@ -23,8 +23,6 @@ function TodoList(props) {
         );
       })}
     </ul>
-  ) : (
-    <p>Todo list is empty</p>
   );
 }
 

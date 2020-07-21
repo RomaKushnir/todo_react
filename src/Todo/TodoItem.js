@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import TodoContext from "../todoContext";
+import TodoContext from "./todoContext";
 // console.log(TodoContext);
 // console.log(React);
 
 function TodoItem({ todo, index, todoItemToggle }) {
-  // console.log(useContext(TodoContext));
   const { todoItemRemove } = useContext(TodoContext);
+  // console.log(useContext(TodoContext));
 
   const styles = {
     li: {
