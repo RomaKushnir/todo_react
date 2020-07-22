@@ -3,6 +3,7 @@ import TodoContext from "./Todo/todoContext";
 import TodoList from "./Todo/TodoList";
 import AddTodo from "./Todo/AddTodo";
 import Loader from "../src/Loader";
+import Modal from "./Modal/Modal";
 
 function App() {
   //статична інфа
@@ -70,6 +71,7 @@ function App() {
         ) : (
           loaderState || <p>Todo list is empty</p>
         )}
+        <Modal />
       </div>
     </TodoContext.Provider>
   );
